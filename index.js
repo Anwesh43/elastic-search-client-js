@@ -22,7 +22,7 @@ class Table extends Component {
     }
 
     render() {
-        return `<table>${this.rows.map((row) => `<tr>${row.render()}</tr>`)}</table>`
+        return `<table>${this.rows.map((row) => `<tr>${row.render()}</tr>`).join("")}</table>`
     }
 
     addRow(row) {
@@ -47,7 +47,7 @@ class Row extends Component {
     }
 
     render() {
-        return this.columns.map(column => `<td>${column}</td>`)
+        return this.columns.map(column => `<td>${column}</td>`).join("")
     }
 }
 
@@ -67,7 +67,7 @@ class EditGroup extends Component{
     }
 
     render() {
-        return `<div><div style = "float:left">${this.labels.map(label => createTextBox(label))}</div><button id="submit">submit</button></div>`
+        return `<div><div style = "float:left">${this.labels.map(label => createTextBox(label)).join("")}</div><button id="submit">submit</button></div>`
     }
 }
 
