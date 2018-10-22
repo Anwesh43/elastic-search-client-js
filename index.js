@@ -30,6 +30,7 @@ class Table extends Component {
         this.render()
         this.onRender()
         this.parent.onRender()
+        this.parent.attachHandler()
     }
 }
 
