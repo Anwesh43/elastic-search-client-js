@@ -1,3 +1,5 @@
+const indexName = 'persons'
+elasticClient.createIndex(indexName)
 class Component {
     render() {
         return ''
@@ -90,10 +92,13 @@ class MainComponent extends Component {
       this.editGroup.setOnClick((event) => {
           console.log(event)
           var row = new Row(this.table)
+          const data = {}
           this.labels.forEach((label) => {
             row.addColumn(document.getElementById(label).value)
+            data[label] = document.getElementById(label).value
           })
           this.table.addRow(row)
+          elasticClient.createDocumentForIndex(indexName, data)
           console.log(row)
       })
     }
